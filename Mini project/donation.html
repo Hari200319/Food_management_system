@@ -70,9 +70,40 @@
         button:hover {
             background-color: #0056b3;
         }
+          /* Navbar styles */
+          .navbar {
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+            overflow: hidden;
+            position: absolute;
+            top: 0;
+            width: 100%;
+        }
+
+        .navbar a {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
     </style>
 </head>
 <body>
+    <div class="navbar">
+        <a href="#home" onclick="navigateToPage('sample.html')">Home</a>
+        <a href="#restaurant" onclick="navigateToPage('restaurant.html')">Restaurant</a>
+        <a href="#supermarket" onclick="navigateToPage('supermarket.html')">Super Market</a>
+        <a href="#donation" onclick="navigateToPage('donation.html')">Donation</a>
+        <a href="#ngo" onclick="navigateToPage('restaurant.html')">NGO</a>
+    </div>
     <div class="container">
         <h1>Donate to Support Our Cause</h1>
         <p>Scan the UPI QR code below or use your UPI app to make a donation:</p>
@@ -85,5 +116,10 @@
             <button type="submit">Donate Now</button>
         </form>
     </div>
+    <script>
+        function navigateToPage(pageURL) {
+            window.location.href = pageURL;
+        }
+    </script>
 </body>
 </html>
