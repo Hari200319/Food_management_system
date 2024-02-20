@@ -65,10 +65,11 @@
 </head>
 <body>
     <div class="navbar">
-        <a href="#restaurant">Restaurant</a>
-        <a href="#supermarket">Super Market</a>
-        <a href="#donation">Donation</a>
-        <a href="#ngo">NGO</a>
+        <a href="#home" onclick="navigateToPage('sample.html')">Home</a>
+        <a href="#restaurant" onclick="navigateToPage('restaurant.html')">Restaurant</a>
+        <a href="#supermarket" onclick="navigateToPage('supermarket.html')">Super Market</a>
+        <a href="#donation" onclick="navigateToPage('donation.html')">Donation</a>
+        <a href="#ngo" onclick="navigateToPage('restaurant.html')">NGO</a>
     </div>
 
     <div id="restaurant" class="welcome-section">
@@ -83,6 +84,9 @@
     <!-- Add other sections for Donation and NGO -->
 
     <script>
+        function navigateToPage(pageURL) {
+            window.location.href = pageURL;
+        }
         // JavaScript for smooth scroslling effect
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
