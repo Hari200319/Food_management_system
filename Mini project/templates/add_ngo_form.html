@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add NGO</title>
+    <style>
+        body {
+            margin: 50px;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            background-color: white;
+            padding: 30px 60px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="tel"] {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 300px;
+        }
+
+        .form-group input[type="submit"] {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .form-group input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Add NGO</h2>
+        <form action="/add_ngo" method="POST">
+            <div class="form-group">
+                <label for="ngo_name">NGO Name:</label>
+                <input type="text" name="ngo_name" id="ngo_name" required>
+            </div>
+            <div class="form-group">
+                <label for="location">Location:</label>
+                <input type="text" name="location" id="location" required>
+            </div>
+            <div class="form-group">
+                <label for="contact_person">Contact Person:</label>
+                <input type="text" name="contact_person" id="contact_person" required>
+            </div>
+            <div class="form-group">
+                <label for="contact_email">Contact Email:</label>
+                <input type="email" name="contact_email" id="contact_email" required>
+            </div>
+            <div class="form-group">
+                <label for="contact_phone">Contact Phone:</label>
+                <input type="tel" name="contact_phone" id="contact_phone" required>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Add NGO">
+            </div>
+        </form>
+    </div>
+</body>
+</html>
