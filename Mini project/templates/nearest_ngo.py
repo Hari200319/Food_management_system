@@ -36,7 +36,7 @@ def calculate_distance(coord1, coord2):
 
 
 # Load NGO data (latitude, longitude)
-ngo_data = pd.read_csv('Mini project/ngo_locations.csv')
+ngo_data = pd.read_csv('Mini project\\templates\\ngo_locations.csv')
 
 # User's location (latitude, longitude)
 user_location = (75.7558,67.6176)
@@ -44,27 +44,31 @@ user_location = (75.7558,67.6176)
 # Calculate distances from user's location to NGO locations
 ngo_data['distance'] = ngo_data.apply(lambda row: calculate_distance(user_location, (row['latitude'], row['longitude'])), axis=1)
 
-# # Select features and target variable
-# X = ngo_data[['latitude', 'longitude']]
-# y = ngo_data['distance']
+#########################################################################3
 
-# # Split data into training and testing sets
-# X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+# Select features and target variable
+X = ngo_data[['latitude', 'longitude']]
+y = ngo_data['distance']
 
-# # Train KNN model
-# k = 5  # Number of neighbors
-# knn_model = KNeighborsRegressor(n_neighbors=k)
-# knn_model.fit(X_train, y_train)
+# Split data into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-# # Make predictions
-# predicted_distance = knn_model.predict([[75.7558,67.6176]])
+# Train KNN model
+k = 5  # Number of neighbors
+knn_model = KNeighborsRegressor(n_neighbors=k)
+knn_model.fit(X_train, y_train)
 
-# # Find nearest NGO based on predicted distance
-# nearest_ngo = ngo_data.iloc[(ngo_data['distance'] - predicted_distance).abs().argsort()[:1]]
+# Make predictions
+predicted_distance = knn_model.predict([[75.7558,67.6176]])
 
-# # Output nearest NGO information
-# print("Nearest NGO:")
-# print(nearest_ngo)
+# Find nearest NGO based on predicted distance
+nearest_ngo = ngo_data.iloc[(ngo_data['distance'] - predicted_distance).abs().argsort()[:1]]
+
+# Output nearest NGO information
+print("Nearest NGO:")
+print(nearest_ngo)
+
+#################################################################################
 
 sorted_ngos = ngo_data.sort_values(by='distance')
 
